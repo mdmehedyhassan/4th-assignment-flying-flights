@@ -22,7 +22,7 @@
 
 <body class="container">
     <!--Header and Menu Section-->
-    <header class="container">
+    <header>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -34,50 +34,50 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main class="main-content" id="display-main-content">
         <div class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="flying-from-input" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="flying-to-input" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="departure-input" class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <input id="return-input" class="inp-style" type="date" name="">
                 </div>
             </div>
             <div class="input-group f-class">
                 <div class="col-8">
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="" id="first-class" value="0">
+                    <input class="inp-style inp-width" type="number" name="" id="first-class-input" value="0">
                 </div>
                 <div class="plus-minus-btn col-4">
-                    <button class="btn btn-success rounded-circle" onclick="ticketChangeHandler('first-class', true)"><i
-                            class="fas fa-plus"></i></button>
-                    <button class="btn btn-danger rounded-circle" onclick="ticketChangeHandler('first-class', false)"><i
-                            class="fas fa-minus"></i></button>
+                    <button class="btn btn-success rounded-circle"
+                        onclick="ticketChangeHandler('first-class-input', true)"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-danger rounded-circle"
+                        onclick="ticketChangeHandler('first-class-input', false)"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
 
             <div class="input-group f-class">
                 <div class="col-8">
                     <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="" id="economy-class" value="0">
+                    <input class="inp-style inp-width" type="number" name="" id="economy-input" value="0">
                 </div>
                 <div class="plus-minus-btn col-4">
                     <button class="btn btn-success rounded-circle"
-                        onclick="ticketChangeHandler('economy-class', true)"><i class="fas fa-plus"></i></button>
+                        onclick="ticketChangeHandler('economy-input', true)"><i class="fas fa-plus"></i></button>
                     <button class="btn btn-danger rounded-circle"
-                        onclick="ticketChangeHandler('economy-class', false)"><i class="fas fa-minus"></i></button>
+                        onclick="ticketChangeHandler('economy-input', false)"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
             <div class="calculations">
@@ -86,7 +86,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="subtotal-amount">00</span></p>
+                        <p>$ <span id="subtotal-input">00</span></p>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="vat-amount">0</span></p>
+                        <p>$ <span id="vat-input">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -104,67 +104,64 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="total-amount">00</span></p>
+                        <p>$ <span id="total-input">00</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <input class="btn-style bg-primary text-light" type="submit" onclick="displayHandler(true)" value="Book Now">
         </div>
-
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
-                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
-                voluptatibus quam</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
     </main>
 
-    <section class="text-center m-5 p-5">
+    <section class="text-center m-5 p-5" id="display-confirm-content" style="display: none">
         <div style="margin: 0% 20%; border-radius: 20px;" class="bg-light p-3">
             <h2 class="text-success pt-3 pb-3">DISCOVER AROUND THE WORLD</h2>
             <div class="text-info">
                 <div class="d-flex justify-content-between">
                     <h4>Flying From</h4>
-                    <h4>Dhake, Bangladesh</h4>
+                    <h4 id="flying-from-output">Dhake, Bangladesh</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Flying To</h4>
-                    <h4>New York, United States</h4>
+                    <h4 id="flying-to-output">New York, United States</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Departure</h4>
-                    <h4>NaN</h4>
+                    <h4 id="departure-output">NaN</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Return</h4>
-                    <h4>NaN</h4>
+                    <h4 id="return-output">NaN</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>First Class Ticket</h4>
-                    <h4>NaN</h4>
+                    <h4 id="first-class-output">NaN</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Economy Ticket</h4>
-                    <h4>NaN</h4>
+                    <h4 id="economy-output">NaN</h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Subtotal</h4>
-                    <h4>$ <span>0</span></h4>
+                    <h4>$ <span id="subtotal-output">0</span></h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h4>Charge 10% VAT</h4>
-                    <h4>$ <span>0</span></h4>
+                    <h4>$ <span id="vat-output">0</span></h4>
                 </div>
                 <div class="d-flex justify-content-between">
                     <h3 class="text-danger">Total Cost</h3>
-                    <h3 class="text-danger">$ <span>0</span></h3>
+                    <h3 class="text-danger">$ <span id="total-output">0</span></h3>
                 </div>
             </div>
             <p class="m-3 text-success">Your seat has been booked.You can come and go with all the benefits of the
                 information provided by our
                 bus.Follow us if you want to get more updates. Thanks.</p>
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button">CONFIRM</button>
+                <button class="btn btn-primary" type="button"  onclick="displayHandler(false)">CONFIRM</button>
             </div>
         </div>
     </section>

@@ -19,11 +19,6 @@ nav{
     width: 100%;
     padding: 20px 0;
 }
-.container{
-    width: 1200px;
-    max-width: 85%;
-    margin: 0 auto;
-}
 nav ul{
     display: flex;
     justify-content: flex-end;
